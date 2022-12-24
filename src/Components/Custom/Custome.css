@@ -1,0 +1,10 @@
+.shadow-box{
+    bottom:270px;
+    right:-195px;
+    z-index: 0;
+}
+
+.offer-box{
+    position: relative;
+    z-index: 1;
+}

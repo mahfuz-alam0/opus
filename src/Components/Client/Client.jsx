@@ -7,7 +7,7 @@ import client4 from '../../Assets/client4.png'
 const Client = () => {
     return (
         <div className='max-w-[1120px] mx-auto'>
-            <h1 className='text-2xl font-bold mt-20 text-center'>Trusted and loved by the world’s best teams</h1>
+            <h1 className='text-3xl font-bold mt-20 text-center'>Trusted and loved by the world’s best teams</h1>
             <div className='w-full grid md:grid-cols-4 grid-cols-1 gap-10 my-20'>
                 <div className='max-w-[150px] mx-auto'><img className='w-full' src={client1} alt="" /></div>
                 <div className='max-w-[150px] mx-auto'><img className='w-full' src={client2} alt="" /></div>
