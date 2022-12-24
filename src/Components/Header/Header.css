@@ -1,0 +1,38 @@
+.header {
+    position: absolute;
+    top: 168px;
+    right: 0;
+    left: 0;
+    width: 100%;
+    margin: auto;
+    /* height: 500px; */
+}
+.up_header{
+    position: relative;
+    z-index: 1;
+}
+
+.right-box {
+    position: relative;
+    top: -64px;
+}
+
+.header-content {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0px;
+}
+
+.ceo_info {
+    position: relative;
+    left: 210px;
+    right: 0px;
+    top: -258px;
+}
+@media only screen and (max-width: 768px){
+    .header{
+        top: 162px !important;
+        background-color: red;
+    }
+}

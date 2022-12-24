@@ -29,14 +29,14 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className='hidden md:block'>
-                    <button className='btn'>Contect Us</button>
+                    <button className='button'>Contect Us</button>
                 </div>
-                <div className={`${show ? 'active' : undefined} navbar md:hidden w-[130px] border rounded-sm mt-8`}>
-                    <ul className=''>
+                <div className={`${show ? 'active' : undefined} absolute z-10 bg-white navbar md:hidden w-[130px] border rounded-sm mt-8`}>
+                    <ul className='z-0'>
                         <li className='text-sky-900 py-2 px-4 cursor-pointer hover:bg-slate-200'>Overview</li>
                         <li className='text-sky-900 py-2 px-4 cursor-pointer hover:bg-slate-200'>Peges</li>
                         <li className='text-sky-900 py-2 px-4 cursor-pointer hover:bg-slate-200'>Template</li>
-                        <li className='text-sky-900 btn'>Contect Us</li>
+                        <li className='text-sky-900 button'>Contect Us</li>
                     </ul>
                 </div>
             </div>

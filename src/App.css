@@ -17,7 +17,7 @@
   margin: auto;
 }
 
-.btn {
+.button {
   background-image: linear-gradient(180deg, rgb(92, 156, 253), rgb(17, 52, 250));
   color: #fff;
   padding: 8px 20px;
@@ -26,7 +26,7 @@
   transition: all 0.3s ease-in-out;
 }
 
-.btn:hover {
+.button:hover {
   background-image: linear-gradient(180deg, rgb(17, 52, 250), rgb(92, 156, 253));
 }
 
