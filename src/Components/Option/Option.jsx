@@ -1,6 +1,5 @@
 import React from 'react';
 import { FaCheck, FaArrowLeft, FaArrowRight } from "react-icons/fa";
-import chack from '../../Assets/chack.png';
 import sec1 from '../../Assets/sec1.png';
 import sec2 from '../../Assets/sec2.png';
 import sec3 from '../../Assets/sec3.png';

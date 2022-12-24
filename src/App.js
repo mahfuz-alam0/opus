@@ -2,6 +2,7 @@ import './App.css';
 import Client from './Components/Client/Client';
 import CreatePage from './Components/CreatePage/CreatePage';
 import Custom from './Components/Custom/Custom';
+import Footer from './Components/Footer/Footer';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
 import Option from './Components/Option/Option';
@@ -20,7 +21,8 @@ function App() {
             <WorkWithUs />
             <CreatePage />
             <Option />
-            <Resource/>
+            <Resource />
+            <Footer/>
         </div>
     );
 }
