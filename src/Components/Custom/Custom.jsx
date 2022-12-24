@@ -20,19 +20,25 @@ const Custom = () => {
                     </div>
 
                 </div>
-                <div className=''>
+                <div className='h-[300px]'>
                     <div className='offer-box'>
-                        <div className='w-[300px] p-5 mx-auto bg-white mb-10'>
+                        <div className='max-w-[300px] p-5 mx-auto bg-white mb-10'>
                             <img className='w-5' src={cursor} alt="" />
                             <p className='font-bold'>Build or Customize a <br /> Website in Minutes</p>
                         </div>
-                        <div className='w-[300px] p-5 mx-auto bg-white'>
+                        <div className='max-w-[300px] p-5 mx-auto bg-white'>
                             <img className='w-5' src={rocket} alt="" />
                             <p className='font-bold'>Our UI Kit was made for <br /> creativity.</p>
                         </div>
                     </div>
-                    <div className='w-[350px] h-[350px] bg-slate-200 shadow-box absolute'>
+                    <div className='w-full flex shadow-box relative'>
+                        <div className='w-1/3'></div>
+                        <div className='w-2/3 bg-slate-200 h-[300px]'></div>
                     </div>
+                    {/* <div className='shadow-box relative ml-24'>
+                        <div className='w-1/5 h-[80px] bg-slate-200'></div>
+                        <div className='w-4/5'></div>
+                    </div> */}
                 </div>
             </div>
         </div>
