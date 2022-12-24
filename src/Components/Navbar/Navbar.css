@@ -1,0 +1,11 @@
+.logo{
+    width: 130px;
+}
+.navbar{
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s;
+}
+.active{
+    transform: scaleX(1);
+}
