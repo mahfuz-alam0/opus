@@ -2,10 +2,21 @@ import React from 'react';
 import './Header.css';
 import { FaMouse, FaArrowRight } from "react-icons/fa";
 import persone from '../../Assets/Header_img.png';
-import icon from '../../Assets/icon4.png'
-import ceo from '../../Assets/ceo_info.png'
+import ceo from '../../Assets/ceo_info.png';
 
 const Header = () => {
+
+    const [info, setInfo] = React.useState(null);
+
+    React.useEffect(() => {
+        fetch('http://localhost:5000/heading')
+            .then(res => res.json())
+            .then(data => setInfo(data[0]))
+    }, []);
+
+    console.log(info?.heading)
+
+
     return (
         <div className='header-containre'>
             <div className='max-w-[1120px] z-10 mx-auto up_header'>
@@ -20,12 +31,12 @@ const Header = () => {
                 <div className='grid md:grid-cols-2 gap-10 grid-cols-1'>
                     <div>
                         <div className='text-center md:text-left'>
-                            <h1 className='text-3xl md:text-5xl font-bold'>Build for</h1>
-                            <div className='w-full text-center md:text-left md:flex'>
-                                <h1 className='text-3xl md:text-5xl font-bold'>enterprise</h1>
-                                <img className='w-10 hidden md:block' src={icon} alt="" />
+                            <div className='max-w-[400px] flex'>
+                                <h1 className='text-3xl md:text-5xl font-bold'>{info?.heading}</h1>
+                                <div className='flex items-center icon'>
+                                    <img className='max-w-[50px] hidden md:block' src='https://i.ibb.co/0f1VzBD/icon4.png' alt="" />
+                                </div>
                             </div>
-                            <h1 className='text-3xl md:text-5xl font-bold'>busenesses</h1>
                         </div>
                         <div className='mt-5 text-center md:text-left px-2 md:px-0'>
                             <p className='w-full md:w-[380px]'>Opus includes everything you need to build a beautiful website for your business. Built to perform and look good doing so.</p>
@@ -37,7 +48,7 @@ const Header = () => {
                     </div>
                     <div className='md:h-[28rem]'>
                         <div className='w-full'>
-                            <img className='w-full md:pl-20 flex justify-end' src={persone} alt="" />
+                            <img className='w-full md:pl-20 flex justify-end' src="https://i.ibb.co/qRGWBHp/Header-img.png" alt="" />
                         </div>
                         <div className='w-[300px] hidden md:block ceo_info'>
                             <img src={ceo} alt="" />

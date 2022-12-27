@@ -1,28 +1,35 @@
+import { Toaster } from 'react-hot-toast';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './App.css';
-import Client from './Components/Client/Client';
-import CreatePage from './Components/CreatePage/CreatePage';
-import Custom from './Components/Custom/Custom';
-import Footer from './Components/Footer/Footer';
-import Header from './Components/Header/Header';
-import Navbar from './Components/Navbar/Navbar';
-import Option from './Components/Option/Option';
-import Resource from './Components/Resource/Resource';
-import VideoTitel from './Components/VideoTitle/VideoTitel';
-import WorkWithUs from './Components/workWithUs/WorkWithUs';
+import Admin from './Components/Admin/Admin';
+import Emails from './Components/Emails/Emails';
+import Login from './Components/Login/Login';
+import Main from './Layout/Main/Main';
+
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Main />,
+    },
+    {
+        path: '/login',
+        element: <Login/>,
+    },
+    {
+        path: '/emails',
+        element: <Emails/>,
+    },
+    {
+        path: '/admin',
+        element: <Admin/>,
+    }
+]);
 
 function App() {
     return (
         <div className="App">
-            <Navbar />
-            <Header />
-            <Client />
-            <VideoTitel />
-            <Custom />
-            <WorkWithUs />
-            <CreatePage />
-            <Option />
-            <Resource />
-            <Footer/>
+            <RouterProvider router={router}></RouterProvider>
+            <Toaster />
         </div>
     );
 }

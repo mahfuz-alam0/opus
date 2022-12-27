@@ -1,8 +1,29 @@
 import React from 'react';
+import { toast } from 'react-hot-toast';
 import image from '../../Assets/logo.png';
 import './Footer.css';
 
 const Footer = () => {
+    const handleEmail = (event) => {
+        event.preventDefault();
+        console.log(event.target.email.value);
+
+        fetch('http://localhost:5000/email', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ email: event.target.email.value })
+        }).then(res => res.json())
+            .then(data => {
+                if (data.message === 'Email already exists') { 
+                    toast.error(data.message)
+                } else {
+                    toast.success('Email added successfully')
+                }
+            })
+
+    }
     return (
         <div>
             <div className='max-w-[1120px] mx-auto'>
@@ -53,9 +74,11 @@ const Footer = () => {
                     </div>
                     <div className=''>
                         <div>
-                            <div className='flex flex-col sm:flex-row'>
-                                <input className='input sm:w-3/5' type="email" placeholder='Email Address' />
-                                <input className='submit button' type="submit" value='Get Started' />
+                            <div className=''>
+                                <form onSubmit={handleEmail} className='flex flex-col sm:flex-row'>
+                                    <input className='input sm:w-3/5' type="email" placeholder='Email Address' name='email'/>
+                                    <input className='submit button' type="submit" value='Get Started' />
+                                </form>
                             </div>
                             <div className='grid md:grid-cols-2 grid-cols-1 my-10'>
                                 <div>
