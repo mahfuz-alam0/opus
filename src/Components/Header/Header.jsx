@@ -8,7 +8,7 @@ const Header = () => {
     const [info, setInfo] = React.useState(null);
 
     React.useEffect(() => {
-        fetch('http://localhost:5000/heading')
+        fetch('https://opus-server-hasibul240.vercel.app/heading')
             .then(res => res.json())
             .then(data => setInfo(data[0]))
     }, []);

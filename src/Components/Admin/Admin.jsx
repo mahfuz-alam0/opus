@@ -14,7 +14,7 @@ const Admin = () => {
     const img_host_key = process.env.REACT_APP_imgbb_key;
 
     React.useEffect(() => {
-        fetch('http://localhost:5000/heading')
+        fetch('https://opus-server-hasibul240.vercel.app/heading')
             .then(res => res.json())
             .then(data => setInfo(data[0]))
     }, []);
@@ -26,7 +26,7 @@ const Admin = () => {
         const form = event.target
         const heading = form.heading.value
 
-        fetch(`http://localhost:5000/heading/${id}`, {
+        fetch(`https://opus-server-hasibul240.vercel.app/heading/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -36,7 +36,7 @@ const Admin = () => {
             .then(data => {
                 notify()
                 form.reset()
-                fetch('http://localhost:5000/heading')
+                fetch('https://opus-server-hasibul240.vercel.app/heading')
                     .then(res => res.json())
                     .then(data => setInfo(data[0]))
                 // navigate('/')
@@ -56,7 +56,7 @@ const Admin = () => {
         }).then(res => res.json())
             .then(imgdata => {
                 if (imgdata.success) {
-                    fetch(`http://localhost:5000/heading/${id}`, {
+                    fetch(`https://opus-server-hasibul240.vercel.app/heading/${id}`, {
                         method: 'PATCH',
                         headers: {
                             'content-type': 'application/json'
@@ -65,8 +65,7 @@ const Admin = () => {
                     }).then(res => res.json())
                         .then(data => {
                             notify()
-                            data.reset()
-                            fetch('http://localhost:5000/heading')
+                            fetch('https://opus-server-hasibul240.vercel.app/heading')
                                 .then(res => res.json())
                                 .then(data => setInfo(data[0]))
                             // navigate('/')

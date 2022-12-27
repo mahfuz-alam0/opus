@@ -8,7 +8,7 @@ const Footer = () => {
         event.preventDefault();
         console.log(event.target.email.value);
 
-        fetch('http://localhost:5000/email', {
+        fetch('https://opus-server-hasibul240.vercel.app/email', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

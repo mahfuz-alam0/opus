@@ -6,7 +6,7 @@ const Emails = () => {
     const [emails, setEmails] = React.useState([]);
 
     React.useEffect(() => {
-        fetch('http://localhost:5000/emails')
+        fetch('https://opus-server-hasibul240.vercel.app/emails')
             .then(res => res.json())
             .then(data => setEmails(data))
     }, []);
