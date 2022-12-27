@@ -1,7 +1,6 @@
 import React from 'react';
 import './Header.css';
 import { FaMouse, FaArrowRight } from "react-icons/fa";
-import persone from '../../Assets/Header_img.png';
 import ceo from '../../Assets/ceo_info.png';
 
 const Header = () => {
