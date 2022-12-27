@@ -1,13 +1,13 @@
 import React from 'react';
+import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
-import { useNavigate } from 'react-router-dom';
 
 const Admin = () => {
 
+    const { register, handleSubmit } = useForm();
     const [info, setInfo] = React.useState(null);
     const [edit, setEdit] = React.useState(false);
 
-    const navigate = useNavigate()
 
     const notify = () => toast.success('Heading updated successfully');
 
@@ -35,15 +35,17 @@ const Admin = () => {
         }).then(res => res.json())
             .then(data => {
                 notify()
-                navigate('/')
-                console.log(data)
+                form.reset()
+                fetch('http://localhost:5000/heading')
+                    .then(res => res.json())
+                    .then(data => setInfo(data[0]))
+                // navigate('/')
             })
 
     }
-    const updateImage = (event) => {
-        event.preventDefault();
-        const form = event.target
-        const image = form.image.value
+    const updateImage = (data) => {
+
+        const image = data.image[0];
 
         const formData = new FormData();
         formData.append('image', image);
@@ -53,10 +55,26 @@ const Admin = () => {
             body: formData
         }).then(res => res.json())
             .then(imgdata => {
-                console.log(imgdata)
-            })
-        console.log(image)
+                if (imgdata.success) {
+                    fetch(`http://localhost:5000/heading/${id}`, {
+                        method: 'PATCH',
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify({ img: imgdata.data.url })
+                    }).then(res => res.json())
+                        .then(data => {
+                            notify()
+                            data.reset()
+                            fetch('http://localhost:5000/heading')
+                                .then(res => res.json())
+                                .then(data => setInfo(data[0]))
+                            // navigate('/')
 
+                        })
+                }
+
+            })
     }
 
 
@@ -73,7 +91,7 @@ const Admin = () => {
                     <input name='heading' className='my-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text' type="text" placeholder={info?.heading} />
                     <input className='button' type="submit" value='update' />
                 </form>
-                <form onSubmit={updateImage} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                <form onSubmit={handleSubmit(updateImage)} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                     <div className='flex justify-between items-center gap-2'>
                         <div className='flex flex-col'>
                             <p className=''>Current image</p>
@@ -84,7 +102,8 @@ const Admin = () => {
                             </div>
                             <div className={`${!edit && 'hidden'}`}>
                                 <label className='block text-gray-700 text-sm font-bold mb-2' htmlFor="">Chose a new image</label>
-                                <input name='image' className={`my-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text `} type="file" placeholder='have' />
+                                {/* <input name='image' className={`my-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="username" type="text `} type="file" placeholder='have' /> */}
+                                <input {...register("image", { required: "Image must be uploaded" })} type="file" className="my-3 shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" />
                             </div>
 
                         </div>
@@ -104,5 +123,6 @@ const Admin = () => {
         </div>
     );
 };
+
 
 export default Admin;

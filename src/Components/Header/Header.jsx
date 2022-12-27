@@ -48,7 +48,7 @@ const Header = () => {
                     </div>
                     <div className='md:h-[28rem]'>
                         <div className='w-full'>
-                            <img className='w-full md:pl-20 flex justify-end' src="https://i.ibb.co/qRGWBHp/Header-img.png" alt="" />
+                            <img className='w-full md:pl-20 flex justify-end' src={info?.img} alt="" />
                         </div>
                         <div className='w-[300px] hidden md:block ceo_info'>
                             <img src={ceo} alt="" />

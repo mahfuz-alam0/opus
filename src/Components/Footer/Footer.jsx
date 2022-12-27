@@ -19,6 +19,7 @@ const Footer = () => {
                 if (data.message === 'Email already exists') { 
                     toast.error(data.message)
                 } else {
+                    event.target.reset()
                     toast.success('Email added successfully')
                 }
             })
